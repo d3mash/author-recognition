@@ -1,3 +1,12 @@
+const sum = (object) => {
+  var sum = 0;
+  for (var el in object) {
+    if( object.hasOwnProperty( el ) ) {
+      sum += parseFloat( object[el] );
+    }
+  }
+  return sum;
+};
 const countGrams = text => {
   const length = text.length;
   let gramsArray = [];
@@ -6,8 +15,8 @@ const countGrams = text => {
     gramsArray.push(gram);
   }
   const counts = gramsArray.reduce((acc, e) => {acc[e] = (acc[e] || 0) + 1; return acc; }, []);
-  const normalise = gramsArray => {
-    const max = Math.max(...Object.values(gramsArray));
+  const toRelative = gramsArray => {
+    const max = sum(gramsArray);
     for (var key in gramsArray) {
       if(gramsArray.hasOwnProperty(key)) {
           gramsArray[key] = gramsArray[key] / max;
@@ -15,7 +24,7 @@ const countGrams = text => {
     }
     return gramsArray;
   };
-  return normalise(counts);
+  return toRelative(counts);
 };
 
 export default countGrams;

@@ -3,10 +3,10 @@
 const normaliseText = (text) => {
   const preformatted = text.toLowerCase();
   const textLength = text.length;
-  let output ='';
+  let output = '';
   const isPunctuation = symbol => {
     return symbol === '.' || symbol === ',' || symbol === '!' || symbol === '?' || symbol === ':' || symbol === ';' || symbol === '-';
-  }
+  };
   for (let counter = 0; counter < textLength; counter = counter + 1) {
     if (!isPunctuation(preformatted[counter])) {
       output = output + preformatted[counter];
