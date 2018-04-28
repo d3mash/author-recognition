@@ -1,4 +1,4 @@
-const sum = (object) => {
+const sumGramsCount = (object) => {
   var sum = 0;
   for (var el in object) {
     if( object.hasOwnProperty( el ) ) {
@@ -16,10 +16,10 @@ const countGrams = text => {
   }
   const counts = gramsArray.reduce((acc, e) => {acc[e] = (acc[e] || 0) + 1; return acc; }, []);
   const toRelative = gramsArray => {
-    const max = sum(gramsArray);
+    const allGramsCount = sumGramsCount(gramsArray);
     for (var key in gramsArray) {
       if(gramsArray.hasOwnProperty(key)) {
-          gramsArray[key] = gramsArray[key] / max;
+          gramsArray[key] = gramsArray[key] / allGramsCount;
       }
     }
     return gramsArray;
