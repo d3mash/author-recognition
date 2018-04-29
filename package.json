@@ -1,0 +1,24 @@
+{
+  "name": "author-recognition",
+  "version": "1.0.0",
+  "description": "this package is designed to analyze texts and recognize the quthor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demidkashirin/author-recognition.git"
+  },
+  "keywords": [
+    "console",
+    "text",
+    "analysis"
+  ],
+  "author": "Demid Kashirin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/demidkashirin/author-recognition/issues"
+  },
+  "homepage": "https://github.com/demidkashirin/author-recognition#readme"
+}
