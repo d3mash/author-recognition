@@ -14,7 +14,7 @@ const countGrams = text => {
     let gram = text[counter] + text[counter + 1] + text[counter + 2];
     gramsArray.push(gram);
   }
-  const counts = gramsArray.reduce((acc, e) => {acc[e] = (acc[e] || 0) + 1; return acc; }, []);
+  const counts = gramsArray.reduce((acc, e) => { acc[e] = (acc[e] || 0) + 1; return acc; }, []);
   const toRelative = gramsArray => {
     const allGramsCount = sumGramsCount(gramsArray);
     for (var key in gramsArray) {
