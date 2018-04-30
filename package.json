@@ -4,7 +4,9 @@
   "description": "this package is designed to analyze texts and recognize the quthor",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-node": "babel-node",
+    "eslint": "eslint"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,15 @@
   "bugs": {
     "url": "https://github.com/demidkashirin/author-recognition/issues"
   },
-  "homepage": "https://github.com/demidkashirin/author-recognition#readme"
+  "homepage": "https://github.com/demidkashirin/author-recognition#readme",
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-core": "*",
+    "babel-eslint": "^8.2.2",
+    "babel-preset-env": "*",
+    "babel-preset-stage-0": "*",
+    "eslint": "*",
+    "eslint-config-airbnb-base": "*",
+    "eslint-plugin-import": "*"
+  }
 }
