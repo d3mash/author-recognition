@@ -1,36 +1,60 @@
 {
-  "name": "author-recognition",
-  "version": "1.0.0",
-  "description": "this package is designed to analyze texts and recognize the quthor",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "babel-node": "babel-node",
-    "eslint": "eslint"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/demidkashirin/author-recognition.git"
-  },
-  "keywords": [
-    "console",
-    "text",
-    "analysis"
-  ],
-  "author": "Demid Kashirin",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/demidkashirin/author-recognition/issues"
-  },
-  "homepage": "https://github.com/demidkashirin/author-recognition#readme",
-  "devDependencies": {
-    "babel-cli": "*",
-    "babel-core": "*",
-    "babel-eslint": "^8.2.2",
-    "babel-preset-env": "*",
-    "babel-preset-stage-0": "*",
-    "eslint": "*",
-    "eslint-config-airbnb-base": "*",
-    "eslint-plugin-import": "*"
-  }
+	"name": "author-recognition",
+	"version": "1.0.0",
+	"description": "this package is designed to analyze texts and recognize the quthor",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest",
+		"babel-node": "babel-node",
+		"eslint": "eslint",
+		"flow": "flow",
+		"flow-typed": "flow-typed",
+		"build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+		"prepublishOnly": "npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/demidkashirin/author-recognition.git"
+	},
+	"keywords": [
+		"console",
+		"text",
+		"analysis"
+	],
+	"author": "Demid Kashirin",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/demidkashirin/author-recognition/issues"
+	},
+	"homepage": "https://github.com/demidkashirin/author-recognition#readme",
+	"dependencies": {
+		"readline-sync": "*",
+		"lodash": "*"
+	},
+	"devDependencies": {
+		"jest": "*",
+		"jest-cli": "*",
+		"babel-cli": "*",
+		"babel-core": "*",
+		"babel-eslint": "^8.2.2",
+		"babel-preset-env": "*",
+		"babel-preset-flow": "*",
+		"babel-plugin-transform-runtime": "*",
+		"babel-preset-stage-0": "*",
+		"eslint": "^4.19.1",
+		"eslint-config-airbnb-base": "^12.1.0",
+		"eslint-plugin-babel": "^5.0.0",
+		"eslint-plugin-flowtype": "^2.46.1",
+		"eslint-plugin-import": "^2.10.0",
+		"eslint-plugin-jest": "^21.15.0",
+		"flow-bin": "^0.57",
+		"flow-typed": "^2.4.0"
+	},
+	"files": [
+		"dist"
+	],
+	"bin": {
+		"distance": "dist/bin/distance.js",
+		"recognize": "dist/bin/recognize.js"
+	}
 }

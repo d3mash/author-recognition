@@ -1,4 +1,8 @@
 install:
 	npm install
 lint:
-	npm run eslint src/** src/bin/**
+	npm run eslint .
+test:
+	npm test -s
+publish:
+	npm publish
