@@ -3,10 +3,9 @@
 
 const normaliseText = (text) => {
   const preformatted = text.toLowerCase();
-  const regex = /[абвгдеёжзийклмнопрстуфхцчшщъыьэюя ]+/g;
+  const regex = /[абвгдеёжзийклмнопрстуфхцчшщъыьэюя ]+/g; // filters out all non-letters
   const punctuationFree = preformatted.match(regex).join('');
-  const trailingWhitespaceFree = punctuationFree.replace(/\s\s+/g, ' ');
-  return trailingWhitespaceFree;
+  return punctuationFree.replace(/\s\s+/g, ' '); // removes trailing whitespaces
 };
 
 export default normaliseText;

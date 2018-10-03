@@ -1,30 +1,21 @@
-const sumGramsCount = (object) => {
-  var sum = 0;
-  for (var el in object) {
-    if( object.hasOwnProperty( el ) ) {
-      sum += parseFloat( object[el] );
-    }
-  }
-  return sum;
-};
-const countGrams = text => {
-  const length = text.length;
-  let gramsArray = [];
-  for (let counter = 0; counter < length - 2; counter = counter + 1) {
-    let gram = text[counter] + text[counter + 1] + text[counter + 2];
-    gramsArray.push(gram);
-  }
-  const counts = gramsArray.reduce((acc, e) => { acc[e] = (acc[e] || 0) + 1; return acc; }, []);
-  const toRelative = gramsArray => {
-    const allGramsCount = sumGramsCount(gramsArray);
-    for (var key in gramsArray) {
-      if(gramsArray.hasOwnProperty(key)) {
-          gramsArray[key] = gramsArray[key] / allGramsCount;
-      }
-    }
-    return gramsArray;
-  };
-  return toRelative(counts);
+import { chunk } from 'lodash';
+
+const makeRelative = (frequencies) => {
+  // counting total
+  const sum = Object.keys(frequencies).reduce((acc, e) =>
+    acc + frequencies[e], 0);
+  // division
+  return Object.keys(frequencies).reduce((acc, e) =>
+    ({ ...acc, [e]: frequencies[e] / sum }), {});
 };
 
-export default countGrams;
+export default (text) => {
+  const textArray = text.split('');
+  // chunking text in array of 3 symbolGrams
+  const gramsArray = chunk(textArray, 3).map(e => e.join(''));
+  // counting symbolGrams
+  const absoluteFrequencies = gramsArray.reduce((acc, gram) =>
+    acc[gram] ? { ...acc, [gram]: acc[gram] + 1 } : { ...acc, [gram]: 1 }, {});
+  // counting frequency as division of freq by total quantity of grams
+  return makeRelative(absoluteFrequencies);
+};
