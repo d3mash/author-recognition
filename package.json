@@ -28,6 +28,7 @@
 	},
 	"homepage": "https://github.com/demidkashirin/author-recognition#readme",
 	"dependencies": {
+		"commander": "*",
 		"readline-sync": "*",
 		"lodash": "*"
 	},
@@ -54,7 +55,6 @@
 		"dist"
 	],
 	"bin": {
-		"distance": "dist/bin/distance.js",
-		"recognize": "dist/bin/recognize.js"
+		"makegram": "dist/bin/makegram.js"
 	}
 }
